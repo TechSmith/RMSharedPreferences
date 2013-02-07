@@ -53,7 +53,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 
 @implementation RMSharedUserDefaults
 
-+ (RMSharedUserDefaults *)standardUserDefaults
++ (id)standardUserDefaults
 {
 	static RMSharedUserDefaults *_standardUserDefaults = nil;
 	static dispatch_once_t onceToken = 0;
