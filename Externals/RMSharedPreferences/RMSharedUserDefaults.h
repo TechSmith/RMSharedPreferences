@@ -25,7 +25,7 @@
 
 @interface RMSharedUserDefaults : NSUserDefaults
 
-+ (RMSharedUserDefaults *)standardUserDefaults;
++ (id)standardUserDefaults;
 
 /*!
 	\brief
