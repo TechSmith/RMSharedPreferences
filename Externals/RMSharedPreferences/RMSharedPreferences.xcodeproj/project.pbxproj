@@ -24,6 +24,22 @@
 		6D74A07A1663745B00D70B8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D74A0781663745B00D70B8F /* InfoPlist.strings */; };
 		6D74A07D1663747100D70B8F /* RMSharedUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D74A07B1663747100D70B8F /* RMSharedUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D74A07E1663747100D70B8F /* RMSharedUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74A07C1663747100D70B8F /* RMSharedUserDefaults.m */; };
+		D9D8526E16C541E500DE2813 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D74A05F166373B400D70B8F /* Cocoa.framework */; };
+		D9D8527816C5420100DE2813 /* RMSharedUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74A07C1663747100D70B8F /* RMSharedUserDefaults.m */; };
+		D9D8527916C5420100DE2813 /* RMCoalescingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5026AA166665C800321B02 /* RMCoalescingOperation.m */; };
+		D9D8527A16C5420100DE2813 /* RMPlistEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5028431667BB0500321B02 /* RMPlistEncoding.m */; };
+		D9D8527B16C5420100DE2813 /* RMSharedPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B5F1E1663771500BE3CB8 /* RMSharedPreferences.m */; };
+		D9D8527C16C5420100DE2813 /* SharedPreferences-Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B5F221663776F00BE3CB8 /* SharedPreferences-Constants.m */; };
+		D9D8527D16C5421B00DE2813 /* NSURL+RMApplicationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B5F26166377C300BE3CB8 /* NSURL+RMApplicationGroup.m */; };
+		D9D8527E16C5421B00DE2813 /* NSObject+RMSubclassSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B5F2D166378B600BE3CB8 /* NSObject+RMSubclassSupport.m */; };
+		D9D8527F16C5423500DE2813 /* RMSharedUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D74A07B1663747100D70B8F /* RMSharedUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9D8528016C5423500DE2813 /* NSURL+RMApplicationGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D3B5F25166377C300BE3CB8 /* NSURL+RMApplicationGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9D8528116C5423500DE2813 /* NSObject+RMSubclassSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D3B5F2C166378B600BE3CB8 /* NSObject+RMSubclassSupport.h */; };
+		D9D8528216C5423500DE2813 /* RMCoalescingOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D5026A9166665C800321B02 /* RMCoalescingOperation.h */; };
+		D9D8528316C5423500DE2813 /* RMPlistEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D5028421667BB0500321B02 /* RMPlistEncoding.h */; };
+		D9D8528416C5423500DE2813 /* RMSharedPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D3B5F1D1663771500BE3CB8 /* RMSharedPreferences.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9D8528516C5423500DE2813 /* SharedPreferences-Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D3B5F211663776F00BE3CB8 /* SharedPreferences-Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9D8528616C542BE00DE2813 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D3B5F29166377EA00BE3CB8 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +65,7 @@
 		6D74A0791663745B00D70B8F /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
 		6D74A07B1663747100D70B8F /* RMSharedUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSharedUserDefaults.h; sourceTree = SOURCE_ROOT; };
 		6D74A07C1663747100D70B8F /* RMSharedUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSharedUserDefaults.m; sourceTree = SOURCE_ROOT; };
+		D9D8526D16C541E500DE2813 /* libRMSharedPreferencesLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRMSharedPreferencesLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +75,15 @@
 			files = (
 				6D74A060166373B400D70B8F /* Cocoa.framework in Frameworks */,
 				6D3B5F2A166377EA00BE3CB8 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9D8526A16C541E500DE2813 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9D8528616C542BE00DE2813 /* Security.framework in Frameworks */,
+				D9D8526E16C541E500DE2813 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				6D74A05C166373B400D70B8F /* RMSharedPreferences.framework */,
+				D9D8526D16C541E500DE2813 /* libRMSharedPreferencesLib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,6 +201,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D9D8526B16C541E500DE2813 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9D8528016C5423500DE2813 /* NSURL+RMApplicationGroup.h in Headers */,
+				D9D8527F16C5423500DE2813 /* RMSharedUserDefaults.h in Headers */,
+				D9D8528416C5423500DE2813 /* RMSharedPreferences.h in Headers */,
+				D9D8528516C5423500DE2813 /* SharedPreferences-Constants.h in Headers */,
+				D9D8528116C5423500DE2813 /* NSObject+RMSubclassSupport.h in Headers */,
+				D9D8528216C5423500DE2813 /* RMCoalescingOperation.h in Headers */,
+				D9D8528316C5423500DE2813 /* RMPlistEncoding.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -194,6 +235,23 @@
 			productName = RMSharedUserDefaults;
 			productReference = 6D74A05C166373B400D70B8F /* RMSharedPreferences.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		D9D8526C16C541E500DE2813 /* RMSharedPreferencesLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9D8527716C541E500DE2813 /* Build configuration list for PBXNativeTarget "RMSharedPreferencesLib" */;
+			buildPhases = (
+				D9D8526916C541E500DE2813 /* Sources */,
+				D9D8526A16C541E500DE2813 /* Frameworks */,
+				D9D8526B16C541E500DE2813 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RMSharedPreferencesLib;
+			productName = RMSharedPreferencesLib;
+			productReference = D9D8526D16C541E500DE2813 /* libRMSharedPreferencesLib.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -218,6 +276,7 @@
 			projectRoot = "";
 			targets = (
 				6D74A05B166373B400D70B8F /* RMSharedPreferences */,
+				D9D8526C16C541E500DE2813 /* RMSharedPreferencesLib */,
 			);
 		};
 /* End PBXProject section */
@@ -245,6 +304,20 @@
 				6D3B5F2F166378B600BE3CB8 /* NSObject+RMSubclassSupport.m in Sources */,
 				6D5026AC166665C800321B02 /* RMCoalescingOperation.m in Sources */,
 				6D5028451667BB0500321B02 /* RMPlistEncoding.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9D8526916C541E500DE2813 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9D8527D16C5421B00DE2813 /* NSURL+RMApplicationGroup.m in Sources */,
+				D9D8527E16C5421B00DE2813 /* NSObject+RMSubclassSupport.m in Sources */,
+				D9D8527816C5420100DE2813 /* RMSharedUserDefaults.m in Sources */,
+				D9D8527916C5420100DE2813 /* RMCoalescingOperation.m in Sources */,
+				D9D8527A16C5420100DE2813 /* RMPlistEncoding.m in Sources */,
+				D9D8527B16C5420100DE2813 /* RMSharedPreferences.m in Sources */,
+				D9D8527C16C5420100DE2813 /* SharedPreferences-Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +420,38 @@
 			};
 			name = Release;
 		};
+		D9D8527516C541E500DE2813 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRIVATE_HEADERS_FOLDER_PATH = include/RMSharedPreferences;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = include/RMSharedPreferences;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D9D8527616C541E500DE2813 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRIVATE_HEADERS_FOLDER_PATH = include/RMSharedPreferences;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = include/RMSharedPreferences;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -364,6 +469,15 @@
 			buildConfigurations = (
 				6D74A072166373B500D70B8F /* Debug */,
 				6D74A073166373B500D70B8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9D8527716C541E500DE2813 /* Build configuration list for PBXNativeTarget "RMSharedPreferencesLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9D8527516C541E500DE2813 /* Debug */,
+				D9D8527616C541E500DE2813 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
