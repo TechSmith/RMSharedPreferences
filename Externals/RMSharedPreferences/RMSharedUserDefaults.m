@@ -48,6 +48,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 @property (readonly, strong, nonatomic) NSOperationQueue *synchronizationQueue;
 
 @property (weak, nonatomic) RMCoalescingOperation *lastSynchronizationOperation;
+@property (readwrite) BOOL wasPreExisting;
 
 @end
 
@@ -90,6 +91,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	
 	NSString *userDefaultsDictionaryFileName = applicationGroupIdentifier ? : [NSURL defaultGroupContainerIdentifier];
 	_userDefaultsDictionaryLocation = [[applicationGroupPreferencesLocation URLByAppendingPathComponent:userDefaultsDictionaryFileName] URLByAppendingPathExtension:@"plist"];
+   self.wasPreExisting = [[NSFileManager defaultManager] fileExistsAtPath:[_userDefaultsDictionaryLocation path] isDirectory:NO];
 	
 	_updatedUserDefaultsDictionary = [NSMutableDictionary dictionary];
 	_registeredUserDefaultsDictionary = [NSMutableDictionary dictionary];

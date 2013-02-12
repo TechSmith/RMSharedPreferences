@@ -36,6 +36,7 @@
 	You can pass nil to retrieve the default group container identifier. Throws an exception if no default identifier can be retrieved.
  */
 - (id)initWithApplicationGroupIdentifier:(NSString *)applicationGroupIdentifier;
+@property (readonly) BOOL wasPreExisting;
 
 @end
 
