@@ -50,7 +50,6 @@
 	return self;
 }
 
-#if COALESCE
 - (BOOL)replaceBlock:(void (^)(void))block
 {
 	@synchronized (self) {
@@ -62,11 +61,9 @@
 	}
 	return YES;
 }
-#endif 
 
 - (void)main
 {
-#if COALESCE
 	void (^block)(void) = nil;
 	
 	@synchronized (self) {
@@ -75,9 +72,6 @@
 	}
 	
 	block();
-#else
-   self.block();
-#endif
 }
 
 @end

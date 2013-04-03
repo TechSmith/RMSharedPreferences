@@ -42,16 +42,12 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 @property (strong, nonatomic) NSMutableDictionary *registeredUserDefaultsDictionary;
 
 @property (readonly, strong, nonatomic) NSRecursiveLock *accessorLock;
-#if COALESCE
 @property (readonly, strong, nonatomic) NSLock *synchronizeLock;
-#endif
 
 @property (readonly, strong, nonatomic) NSOperationQueue *fileCoordinationOperationQueue;
 @property (readonly, strong, nonatomic) NSOperationQueue *synchronizationQueue;
 
-#if COALESCE
 @property (weak, nonatomic) RMCoalescingOperation *lastSynchronizationOperation;
-#endif
 @property (readwrite) BOOL wasPreExisting;
 
 @end
@@ -101,9 +97,8 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	_registeredUserDefaultsDictionary = [NSMutableDictionary dictionary];
 	
 	_accessorLock = [[NSRecursiveLock alloc] init];
-#if COALESCE
 	_synchronizeLock = [[NSLock alloc] init];
-#endif
+
 	NSString *queuePrefixName = [applicationGroupIdentifier stringByAppendingFormat:@".sharedpreferences"];
 	
 	_fileCoordinationOperationQueue = [[NSOperationQueue alloc] init];
@@ -198,7 +193,6 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 
 - (BOOL)synchronize
 {
-#if COALESCE
 	RMCoalescingOperation *synchronizationOperation = [RMCoalescingOperation coalescingOperationWithBlock:^ {
 		[self _synchronize];
 	}];
@@ -214,21 +208,12 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	[synchronizationOperation main];
 	
 	return YES;
-#else
-   RMCoalescingOperation *synchronizationOperation = [RMCoalescingOperation coalescingOperationWithBlock:^ {
-		[self _synchronize];
-	}];
-   [self.synchronizationQueue addOperation:synchronizationOperation];
-   [self.synchronizationQueue waitUntilAllOperationsAreFinished];
-   return YES;
-#endif
 }
 
 #pragma mark - Synchronization
 
 - (void)_setNeedsSynchronizing
 {
-#if COALESCE
 	[self _lock:[self synchronizeLock] criticalSection:^ {
 		RMCoalescingOperation *lastSynchronizationOperation = [self lastSynchronizationOperation];
 		
@@ -256,12 +241,6 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 		[enabledSuddenTermination addDependency:synchronizationOperation];
 		[[[NSOperationQueue alloc] init] addOperation:enabledSuddenTermination];
 	}];
-#else
-   RMCoalescingOperation *synchronizationOperation = [RMCoalescingOperation coalescingOperationWithBlock:^ {
-		[self _synchronize];
-	}];
-   [self.synchronizationQueue addOperation:synchronizationOperation];
-#endif
 }
 
 - (void)_synchronize
