@@ -23,18 +23,14 @@
 
 #import <Foundation/Foundation.h>
 
-#define COALESCE 0
-
 @interface RMCoalescingOperation : NSOperation
 
 + (id)coalescingOperationWithBlock:(void (^)(void))block;
 
-#if COALESCE
 /*!
 	\brief
 	Attempts to replace the execution block. Returns YES if succeeded, NO otherwise.
  */
 - (BOOL)replaceBlock:(void (^)(void))block;
-#endif
 
 @end
