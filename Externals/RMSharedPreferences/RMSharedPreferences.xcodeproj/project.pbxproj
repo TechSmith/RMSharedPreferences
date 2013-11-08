@@ -400,6 +400,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath/";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = RMSharedPreferences;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -409,13 +410,14 @@
 		6D74A073166373B500D70B8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath/";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = RMSharedPreferences;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
