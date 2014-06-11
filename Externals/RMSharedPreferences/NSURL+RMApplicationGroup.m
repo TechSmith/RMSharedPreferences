@@ -61,7 +61,7 @@
 
 + (NSURL *)containerURLForSecurityApplicationGroupIdentifier:(NSString *)identifier
 {
-	identifier = identifier ? : [self defaultGroupContainerIdentifier];
+	identifier = identifier ? : [NSURL defaultGroupContainerIdentifier];
 	
 	if (identifier == nil) {
 		@throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"A default identifier could not be found in the entitlements." userInfo:nil];
