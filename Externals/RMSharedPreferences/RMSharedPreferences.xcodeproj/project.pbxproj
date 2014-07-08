@@ -21,7 +21,6 @@
 		6D5028441667BB0500321B02 /* RMPlistEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D5028421667BB0500321B02 /* RMPlistEncoding.h */; };
 		6D5028451667BB0500321B02 /* RMPlistEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5028431667BB0500321B02 /* RMPlistEncoding.m */; };
 		6D74A060166373B400D70B8F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D74A05F166373B400D70B8F /* Cocoa.framework */; };
-		6D74A07A1663745B00D70B8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D74A0781663745B00D70B8F /* InfoPlist.strings */; };
 		6D74A07D1663747100D70B8F /* RMSharedUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D74A07B1663747100D70B8F /* RMSharedUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D74A07E1663747100D70B8F /* RMSharedUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74A07C1663747100D70B8F /* RMSharedUserDefaults.m */; };
 		D9D8526E16C541E500DE2813 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D74A05F166373B400D70B8F /* Cocoa.framework */; };
@@ -65,6 +64,8 @@
 		6D74A0791663745B00D70B8F /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
 		6D74A07B1663747100D70B8F /* RMSharedUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSharedUserDefaults.h; sourceTree = SOURCE_ROOT; };
 		6D74A07C1663747100D70B8F /* RMSharedUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSharedUserDefaults.m; sourceTree = SOURCE_ROOT; };
+		8A07B8911965B59A00952DD5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8A07B9301965D3B600952DD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D9D8526D16C541E500DE2813 /* libRMSharedPreferencesLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRMSharedPreferencesLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -269,6 +270,7 @@
 			knownRegions = (
 				en,
 				"en-GB",
+				de,
 			);
 			mainGroup = 6D74A050166373B400D70B8F;
 			productRefGroup = 6D74A05D166373B400D70B8F /* Products */;
@@ -286,7 +288,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D74A07A1663745B00D70B8F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +329,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D74A0791663745B00D70B8F /* en-GB */,
+				8A07B8911965B59A00952DD5 /* de */,
+				8A07B9301965D3B600952DD5 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -359,7 +362,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wall";
@@ -384,7 +387,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wall";
 			};
@@ -432,7 +435,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRIVATE_HEADERS_FOLDER_PATH = include/RMSharedPreferences;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = include/RMSharedPreferences;
@@ -448,7 +451,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRIVATE_HEADERS_FOLDER_PATH = include/RMSharedPreferences;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = include/RMSharedPreferences;
