@@ -25,7 +25,7 @@
 
 @interface RMCoalescingOperation : NSOperation
 
-+ (id)coalescingOperationWithBlock:(void (^)(void))block;
++ (instancetype)coalescingOperationWithBlock:(void (^)(void))block;
 
 /*!
 	\brief

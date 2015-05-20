@@ -54,7 +54,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 
 @implementation RMSharedUserDefaults
 
-+ (id)standardUserDefaults
++ (instancetype)standardUserDefaults
 {
 	static RMSharedUserDefaults *_standardUserDefaults = nil;
 	static dispatch_once_t onceToken = 0;
@@ -73,7 +73,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	}];
 }
 
-- (id)initWithApplicationGroupIdentifier:(NSString *)applicationGroupIdentifier
+- (instancetype)initWithApplicationGroupIdentifier:(NSString *)applicationGroupIdentifier
 {
 	self = [super initWithUser:nil];
 	if (self == nil) {
@@ -115,7 +115,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	return self;
 }
 
-- (id)initWithUser:(NSString *)username
+- (instancetype)initWithUser:(NSString *)username
 {
 	return [self initWithApplicationGroupIdentifier:nil];
 }
@@ -157,7 +157,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	
 	[self _lock:[self accessorLock] criticalSection:^ {
 		[self willChangeValueForKey:defaultName];
-		[[self updatedUserDefaultsDictionary] setObject:object forKey:defaultName];
+		[self updatedUserDefaultsDictionary][defaultName] = object;
 		[self didChangeValueForKey:defaultName];
 	}];
 	
@@ -354,7 +354,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	
 	[userDefaultsUpdatesFromDisk enumerateObjectsUsingBlock:^ (NSString *defaultName, BOOL *stop) {
 		id value = userDefaultsDictionary[defaultName] ? : [NSNull null];
-		[userDefaultsChanges setObject:value forKey:defaultName];
+		userDefaultsChanges[defaultName] = value;
 	}];
 	
 	[userDefaultsChanges addEntriesFromDictionary:updatedUserDefaultsDictionary];
@@ -370,7 +370,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	NSMutableDictionary *mutableUpdatedUserDefaultsDictionary = [self updatedUserDefaultsDictionary];
 	
 	[userDefaultsChanges enumerateKeysAndObjectsUsingBlock:^ (NSString *defaultName, id value, BOOL *stop) {
-		id currentValue = [mutableUpdatedUserDefaultsDictionary objectForKey:defaultName];
+		id currentValue = mutableUpdatedUserDefaultsDictionary[defaultName];
 		
 		/*
 			The value of the updated key has been mutated since we acquired it.
@@ -392,7 +392,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 			Update and notify
 		 */
 		[self willChangeValueForKey:defaultName];
-		[mutableUserDefaultsDictionary setObject:value forKey:defaultName];
+		mutableUserDefaultsDictionary[defaultName] = value;
 		[self didChangeValueForKey:defaultName];
 		
 		[self _notifyChangeForDefaultName:defaultName value:value];
@@ -417,13 +417,13 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	NSMutableSet *updatedKeys = [NSMutableSet set];
 	
 	[dictionary1 enumerateKeysAndObjectsUsingBlock:^ (id key, id object, BOOL *stop) {
-		if (![[dictionary2 objectForKey:key] isEqual:object]) {
+		if (![dictionary2[key] isEqual:object]) {
 			[updatedKeys addObject:key];
 		}
 	}];
 	
 	[dictionary2 enumerateKeysAndObjectsUsingBlock:^ (id key, id object, BOOL *stop) {
-		if (![[dictionary1 objectForKey:key] isEqual:object]) {
+		if (![dictionary1[key] isEqual:object]) {
 			[updatedKeys addObject:key];
 		}
 	}];
@@ -440,7 +440,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 			[newDictionary removeObjectForKey:key];
 			return;
 		}
-		[newDictionary setObject:object forKey:key];
+		newDictionary[key] = object;
 	}];
 	
 	return newDictionary;

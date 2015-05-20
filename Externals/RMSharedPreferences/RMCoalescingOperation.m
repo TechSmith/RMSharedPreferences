@@ -31,12 +31,12 @@
 
 @implementation RMCoalescingOperation
 
-+ (id)coalescingOperationWithBlock:(void (^)(void))block
++ (instancetype)coalescingOperationWithBlock:(void (^)(void))block
 {
 	return [[self alloc] initWithBlock:block];
 }
 
-- (id)initWithBlock:(void (^)(void))block
+- (instancetype)initWithBlock:(void (^)(void))block
 {
 	NSParameterAssert(block != nil);
 	

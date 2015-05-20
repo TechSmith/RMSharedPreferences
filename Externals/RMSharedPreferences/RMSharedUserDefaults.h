@@ -25,7 +25,7 @@
 
 @interface RMSharedUserDefaults : NSUserDefaults
 
-+ (id)standardUserDefaults;
++ (instancetype)standardUserDefaults;
 
 /*!
 	\brief
@@ -35,7 +35,7 @@
 	applicationGroupIdentifier: the identifier for the application group the user defaults should target.
 	You can pass nil to retrieve the default group container identifier. Throws an exception if no default identifier can be retrieved.
  */
-- (id)initWithApplicationGroupIdentifier:(NSString *)applicationGroupIdentifier;
+- (instancetype)initWithApplicationGroupIdentifier:(NSString *)applicationGroupIdentifier NS_DESIGNATED_INITIALIZER;
 @property (readonly) BOOL wasPreExisting;
 
 @end
