@@ -73,9 +73,14 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	}];
 }
 
-- (instancetype)initWithApplicationGroupIdentifier:(NSString *)applicationGroupIdentifier
+-(instancetype) initWithSuiteName:(NSString *)suitename
 {
-	self = [super initWithUser:nil];
+   return [self initWithApplicationGroupIdentifier:nil];
+}
+
+- (instancetype)initWithApplicationGroupIdentifier:(NSString *)applicationGroupIdentifier 
+{
+	self = [super initWithSuiteName:nil];
 	if (self == nil) {
 		return nil;
 	}
