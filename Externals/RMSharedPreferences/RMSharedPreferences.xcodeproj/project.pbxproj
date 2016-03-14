@@ -23,6 +23,7 @@
 		6D74A060166373B400D70B8F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D74A05F166373B400D70B8F /* Cocoa.framework */; };
 		6D74A07D1663747100D70B8F /* RMSharedUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D74A07B1663747100D70B8F /* RMSharedUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D74A07E1663747100D70B8F /* RMSharedUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74A07C1663747100D70B8F /* RMSharedUserDefaults.m */; };
+		A51A2C6D1C973360007E9BF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A51A2C6F1C973360007E9BF4 /* InfoPlist.strings */; };
 		D9D8526E16C541E500DE2813 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D74A05F166373B400D70B8F /* Cocoa.framework */; };
 		D9D8527816C5420100DE2813 /* RMSharedUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74A07C1663747100D70B8F /* RMSharedUserDefaults.m */; };
 		D9D8527916C5420100DE2813 /* RMCoalescingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5026AA166665C800321B02 /* RMCoalescingOperation.m */; };
@@ -66,6 +67,7 @@
 		6D74A07C1663747100D70B8F /* RMSharedUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSharedUserDefaults.m; sourceTree = SOURCE_ROOT; };
 		8A07B8911965B59A00952DD5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A07B9301965D3B600952DD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A51A2C6E1C973360007E9BF4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D9D8526D16C541E500DE2813 /* libRMSharedPreferencesLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRMSharedPreferencesLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 		6D74A066166373B500D70B8F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A51A2C6F1C973360007E9BF4 /* InfoPlist.strings */,
 				6D74A0741663744900D70B8F /* Info.plist */,
 				6D74A0781663745B00D70B8F /* InfoPlist.strings */,
 			);
@@ -288,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51A2C6D1C973360007E9BF4 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +338,14 @@
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
+		};
+		A51A2C6F1C973360007E9BF4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A51A2C6E1C973360007E9BF4 /* de */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
 
