@@ -23,8 +23,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RMSharedPreferences/SharedPreferences-Constants.h"
+#import "SharedPreferences-Constants.h"
 
-#import "RMSharedPreferences/RMSharedUserDefaults.h"
+#import "RMSharedUserDefaults.h"
 
-#import "RMSharedPreferences/NSURL+RMApplicationGroup.h"
+#import "NSURL+RMApplicationGroup.h"
