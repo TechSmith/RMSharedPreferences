@@ -97,7 +97,9 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	
 	NSString *userDefaultsDictionaryFileName = applicationGroupIdentifier ? : [NSURL defaultGroupContainerIdentifier];
 	_userDefaultsDictionaryLocation = [[applicationGroupPreferencesLocation URLByAppendingPathComponent:userDefaultsDictionaryFileName] URLByAppendingPathExtension:@"plist"];
-   self.wasPreExisting = [[NSFileManager defaultManager] fileExistsAtPath:[_userDefaultsDictionaryLocation path] isDirectory:NO];
+   
+   BOOL isDirectory = NO;
+   self.wasPreExisting = [[NSFileManager defaultManager] fileExistsAtPath:[_userDefaultsDictionaryLocation path] isDirectory:&isDirectory];
 	
 	_updatedUserDefaultsDictionary = [NSMutableDictionary dictionary];
 	_registeredUserDefaultsDictionary = [NSMutableDictionary dictionary];
@@ -121,7 +123,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 	return self;
 }
 
-- (instancetype)initWithUser:(NSString *)username
+- (instancetype)init
 {
 	return [self initWithApplicationGroupIdentifier:nil];
 }
@@ -510,11 +512,6 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 - (void)removeVolatileDomainForName:(NSString *)domainName
 {
 	[self subclassDoesNotSupportSelector:_cmd];
-}
-
-- (NSArray *)persistentDomainNames
-{
-	return nil;
 }
 
 - (NSDictionary *)persistentDomainForName:(NSString *)domainName
