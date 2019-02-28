@@ -29,6 +29,7 @@
 #import "NSURL+RMApplicationGroup.h"
 #import "NSObject+RMSubclassSupport.h"
 #import "snagitconstants.h"
+#import <SnagitCommon/SnagitCommon-Swift.h>
 
 NSString * const RMSharedUserDefaultsDidChangeDefaultNameKey = @"RMSharedUserDefaultsDidChangeDefaultNameKey";
 NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDefaultsDidChangeDefaulValueKey";
@@ -92,7 +93,8 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 		return nil;
 	}
 	
-   NSURL *applicationGroupPreferencesLocation = [[applicationGroupLocation URLByAppendingPathComponent:kSnagitBundleName] URLByAppendingPathComponent:@"Preferences"];
+   NSString* bundleName = NSApp.gestalt.productBundleName;
+   NSURL *applicationGroupPreferencesLocation = [[applicationGroupLocation URLByAppendingPathComponent:bundleName] URLByAppendingPathComponent:@"Preferences"];
 	[[NSFileManager defaultManager] createDirectoryAtURL:applicationGroupPreferencesLocation withIntermediateDirectories:YES attributes:nil error:NULL];
 	
 	NSString *userDefaultsDictionaryFileName = applicationGroupIdentifier ? : [NSURL defaultGroupContainerIdentifier];
