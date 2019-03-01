@@ -38,6 +38,11 @@
 - (instancetype)initWithApplicationGroupIdentifier:(NSString *)applicationGroupIdentifier NS_DESIGNATED_INITIALIZER;
 @property (readonly) BOOL wasPreExisting;
 
+/*! Subclasses may override to customize the path to the preferences file by inserting an optional subdirectry into the path.
+ 
+   Snagit uses this to put the preference for each annual release into its own subdirectory.
+*/
+@property (readonly) NSString* optionalSubDirectoryName;
 @end
 
 extern NSString * const RMSharedUserDefaultsDidChangeDefaultNameKey;
