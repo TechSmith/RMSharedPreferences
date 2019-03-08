@@ -28,7 +28,6 @@
 
 #import "NSURL+RMApplicationGroup.h"
 #import "NSObject+RMSubclassSupport.h"
-#import "snagitconstants.h"
 
 NSString * const RMSharedUserDefaultsDidChangeDefaultNameKey = @"RMSharedUserDefaultsDidChangeDefaultNameKey";
 NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDefaultsDidChangeDefaulValueKey";
@@ -92,7 +91,13 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 		return nil;
 	}
 	
-   NSURL *applicationGroupPreferencesLocation = [[applicationGroupLocation URLByAppendingPathComponent:kSnagitBundleName] URLByAppendingPathComponent:@"Preferences"];
+   NSURL *applicationGroupPreferencesLocation = applicationGroupLocation;
+   NSString* optionalSubdirectoryName = [self optionalSubDirectoryName];
+   if ( optionalSubdirectoryName ) {
+      applicationGroupPreferencesLocation = [applicationGroupPreferencesLocation URLByAppendingPathComponent:optionalSubdirectoryName];
+   }
+   applicationGroupPreferencesLocation = [applicationGroupPreferencesLocation URLByAppendingPathComponent:@"Preferences"];
+   
 	[[NSFileManager defaultManager] createDirectoryAtURL:applicationGroupPreferencesLocation withIntermediateDirectories:YES attributes:nil error:NULL];
 	
 	NSString *userDefaultsDictionaryFileName = applicationGroupIdentifier ? : [NSURL defaultGroupContainerIdentifier];
@@ -134,6 +139,11 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 }
 
 #pragma mark - Accessors
+
+- (NSString*)optionalSubDirectoryName
+{
+   return nil;
+}
 
 - (id)objectForKey:(NSString *)defaultName
 {
