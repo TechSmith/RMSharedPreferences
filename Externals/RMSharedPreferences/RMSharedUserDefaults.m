@@ -406,6 +406,11 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 			return;
 		}
 		
+      if ([value isKindOfClass:[NSNull class]])
+      {
+         value = nil;
+      }
+      
 		/*
 			Update and notify
 		 */
@@ -421,10 +426,8 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 
 - (void)_notifyChangeForDefaultName:(NSString *)defaultName value:(id)value
 {
-	NSDictionary *userInfo = @{
-		RMSharedUserDefaultsDidChangeDefaultNameKey : defaultName,
-		RMSharedUserDefaultsDidChangeDefaulValueKey : value,
-	};
+	NSMutableDictionary *userInfo = [@{RMSharedUserDefaultsDidChangeDefaultNameKey : defaultName} mutableCopy];
+   userInfo[RMSharedUserDefaultsDidChangeDefaulValueKey] = value;
 	[[NSNotificationCenter defaultCenter] postNotificationName:NSUserDefaultsDidChangeNotification object:self userInfo:userInfo];
 }
 
