@@ -59,36 +59,4 @@
 	return applicationGroupIdentifier;
 }
 
-+ (NSURL *)containerURLForSecurityApplicationGroupIdentifier:(NSString *)identifier
-{
-	identifier = identifier ? : [NSURL defaultGroupContainerIdentifier];
-	
-	if (identifier == nil) {
-		@throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"A default identifier could not be found in the entitlements." userInfo:nil];
-		return nil;
-	}
-	
-	static NSString * const NSURLEMBContainerExtensionsLibraryFolderName = @"Library";
-	static NSString * const NSURLEMBContainerExtensionsGroupContainerFolderName = @"Group Containers";
-	
-	static NSURL *groupsContainerDirectory = nil;
-	
-	static dispatch_once_t onceToken = 0;
-	dispatch_once(&onceToken, ^ {
-		struct passwd *pw = getpwuid(getuid());
-		const char *homedir = pw->pw_dir;
-		NSURL *homeDirectory = [NSURL fileURLWithPath:@(homedir)];
-		groupsContainerDirectory = [[homeDirectory URLByAppendingPathComponent:NSURLEMBContainerExtensionsLibraryFolderName] URLByAppendingPathComponent:NSURLEMBContainerExtensionsGroupContainerFolderName];
-	});
-	
-	NSURL *indentifierGroupsContainerDirectory = [groupsContainerDirectory URLByAppendingPathComponent:identifier];
-	
-	BOOL createdDirectory = [[NSFileManager defaultManager] createDirectoryAtURL:indentifierGroupsContainerDirectory withIntermediateDirectories:YES attributes:nil error:NULL];
-	if (!createdDirectory) {
-		return nil;
-	}
-	
-	return indentifierGroupsContainerDirectory;
-}
-
 @end
