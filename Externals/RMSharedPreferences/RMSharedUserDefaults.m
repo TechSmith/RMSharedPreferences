@@ -85,7 +85,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 		return nil;
 	}
 	
-	NSURL *applicationGroupLocation = [NSURL containerURLForSecurityApplicationGroupIdentifier:applicationGroupIdentifier];
+	NSURL *applicationGroupLocation = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:applicationGroupIdentifier];
 	if (applicationGroupLocation == nil) {
 		@throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"A default application group identifier cannot be found in the entitlements" userInfo:nil];
 		return nil;

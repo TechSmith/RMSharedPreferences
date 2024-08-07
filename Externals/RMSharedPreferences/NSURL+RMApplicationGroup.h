@@ -27,6 +27,4 @@
 
 + (NSString *)defaultGroupContainerIdentifier;
 
-+ (NSURL *)containerURLForSecurityApplicationGroupIdentifier:(NSString *)identifier;
-
 @end
